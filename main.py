@@ -1,7 +1,3 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 class WordMakerAI():
 
@@ -21,7 +17,6 @@ class WordMakerAI():
 
 def scramble(key_letter, game_letters):
     wm = WordMakerAI("dictionary.txt")
-    aca = WordMakerAI("academic.txt") # add as many dictionairies as you like here.
 
     search_letters = game_letters + key_letter
     alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -38,12 +33,8 @@ def scramble(key_letter, game_letters):
            and len(word) > 3
     }
 
-    academic_keep = {word for word in aca.current_words
-                     if remove_these.isdisjoint(word)
-                     and key_letter in word
-                     and len(word) > 3}
 
-    print(keep_these, academic_keep)
+    print(sorted(keep_these))
 
 
 # Press the green button in the gutter to run the script.
@@ -58,9 +49,7 @@ if __name__ == '__main__':
     if len(game_letters) != 6 or not game_letters.isalpha():
         print("Invalid game letters. Please enter 6 letters.")
         exit(1)
-
+    # future update might be to only provide hints instead of full list of words
     print("I found the following words for you to try:")
     scramble(key_letter, game_letters)
 
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
